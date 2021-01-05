@@ -9,6 +9,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        /**
+         * 必须加，否则64位手机无法加载so文件
+         */
+        ndk {
+            abiFilters "x86"
+            abiFilters "armeabi"
+        }
     }
     buildTypes {
         release {
@@ -28,4 +35,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+
+    compile 'com.alibaba:fastjson:1.1.46.android'
+    compile 'com.taobao.android:weex_sdk:0.17.0@aar'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
 }

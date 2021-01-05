@@ -1,0 +1,916 @@
+<template>
+  <list loadmoreoffset="10">
+    <cell repeat="{{listData}}" scope="1" rownumber={{id}}>
+      <image src="{{url}}" style="width:750px;height:220px"></image>
+      <text style="font-size:25;margin:10;">{{title}}</text>
+    </cell>
+    <!--<loading class="refresh-view" display="{{loading_display}}" onloading="fetch">-->
+      <!--<text class="refresh-arrow" style="text-align: center; color:rgb(238, 162, 54)" if="{{(refresh_display==='hide')}}">Load more</text>-->
+      <!--<loading-indicator style="height:60;width:60;color:#3192e1"></loading-indicator>-->
+    <!--</loading>-->
+  </list>
+</template>
+
+<style>
+  .refresh-view {
+    height: 120px;
+    width: 750px;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+</style>
+
+<script>
+  module.exports = {
+    data: {
+      refresh_display : 'hide',
+      loading_display : 'hide',
+      listData: [
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+          "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+          "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+          "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+          "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vcover_hz_pic/0/h66vl2frbmcwq161509935962/750",
+          "title": "胡歌演绎狼性职场悍将"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i05348991fm.png/0",
+          "title": "欧美电影里的女神都在这里了 你认识几个"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/b03579notob.png/0",
+          "title": "没想到成龙还有这段镜头 全程笑点不断"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/d0504ccvu7d.png/0",
+          "title": "要不是有人拍下了视频，你就是说破天也没人相信这是真的"
+        },
+        {
+          "cellType": "contentPoster",
+          "url": "http://puui.qpic.cn/vpic/0/i0549lql5qf.png/0",
+          "title": "超能对决，雷神大战超人，雷神高傲被痛扁"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "虎鲸用尾巴抽打鱼群",
+          "url": "http://puui.qpic.cn/tv/0/16040532_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "伪虎鲸群围猎海豚",
+          "url": "http://puui.qpic.cn/tv/0/16040565_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "总是吃不饱的海参",
+           "url": "http://puui.qpic.cn/tv/0/16070266_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "这种鱼长着长着变性了",
+           "url": "http://puui.qpic.cn/tv/0/16040505_498280/0"
+        },
+        {
+          "cellType": "contentPoster",
+          "title": "大鱼跃出水面捕食飞鸟",
+          "url": "http://puui.qpic.cn/tv/0/16040463_498280/0"
+        }
+      ]
+    },
+    methods: {
+      onloading: function (e) {
+        this.loading_display = "show"
+        setTimeout(function () {
+          this.loading_display = 'hide'
+        }.bind(this), 1000)
+      },
+
+      fetch (event) {
+        this.loading_display = "show"
+        setTimeout(function () {
+          this.loading_display = 'hide'
+        }.bind(this), 1000)
+
+        const length = this.shopList.length
+        for (let i = 0; i < 10; ++i) {
+          let item = JSON.parse(JSON.stringify(this.shopList[i]));
+          item.id = length + i + 1;
+          this.shopList.push(item);
+        }
+      }
+
+    }
+  }
+</script>
